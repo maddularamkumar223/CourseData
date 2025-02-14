@@ -1,0 +1,27 @@
+{
+  "courses": [
+    {
+      "courseName": "React js",
+      "description": "Single page application",
+      "price": "5000",
+      "duration": "30",
+      "id": "da4b"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "rk",
+      "password": "Ram@1234",
+      "email": "rk@gmail.com",
+      "role":"admin"
+    },
+    {
+      "id": 2,
+      "username": "kumar",
+      "password": "kumar@1234",
+      "email": "rk@gmail.com",
+      "role":"user"
+    }
+  ]
+}

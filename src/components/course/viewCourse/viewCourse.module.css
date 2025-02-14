@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container article{
+    background-image: linear-gradient(navy,white);
+    width: 500px;
+    height: 500px;
+    border: solid navy;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 80px;
+    border-radius: 20px;
+    /* background-color: gray; */
+    color: white;
+}
+
+.container .button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container p{
+    font-size: 25px;
+}
+
+
+.container button{
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+
+}
+
+.container article button:first-of-type{
+    background-color: blue;
+}
+
+.container button:last-child{
+    background-color: red;
+}
