@@ -36,7 +36,7 @@ const ViewCourse = () => {
     <section className={Style.container}>
       <article>
         <aside>
-          <p>Course Nameeee: {singleData.courseName}</p>
+          <p>Course Nameeeee: {singleData.courseName}</p>
           <p>Description: {singleData.description}</p>
           <p>Price: {singleData.price}</p>
           <p>Duration: {singleData.duration}days</p>
