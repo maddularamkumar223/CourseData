@@ -45,7 +45,7 @@ const ViewCourse = () => {
           <aside className={Style.button}>
             <button>
               <NavLink to="/createCourse" state={singleData}>
-                Update
+                Updateeee
               </NavLink>
             </button>
             <button
