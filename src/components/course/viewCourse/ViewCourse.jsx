@@ -1,11 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import Style from "./viewCourse.module.css";
+import { courseContext } from "../../context/CourseContext";
 
 const ViewCourse = () => {
-  let [singleData, setSingleData] = useState([]);
-  let [userData, setUserData] = useState([]);
+  let { fetchSingleCourse, deleteData, singleCourse } =
+    useContext(courseContext);
   let { id } = useParams();
   let navigate = useNavigate();
   console.log(id);
@@ -13,51 +13,34 @@ const ViewCourse = () => {
     navigate("/course");
   };
 
-  let fetchUser = async () => {
-    let { data } = await axios.get("http://localhost:3000/users");
-    setUserData(data);
-  };
-  let deleteData = async (deleteID) => {
-    await axios.delete("http://localhost:3000/courses/" + deleteID);
-    console.log("delete");
-  };
-  let fetchSingleData = async (userId) => {
-    let { data } = await axios.get("http://localhost:3000/courses/" + userId);
-    console.log(data);
-    setSingleData(data);
-  };
   useEffect(() => {
-    fetchSingleData(id);
-    fetchUser();
-    console.log(singleData);
+    fetchSingleCourse(id);
   }, []);
-  console.log(userData);
+
   return (
     <section className={Style.container}>
       <article>
         <aside>
-          <p>Course Nameeeee: {singleData.courseName}</p>
-          <p>Description: {singleData.description}</p>
-          <p>Price: {singleData.price}</p>
-          <p>Duration: {singleData.duration}days</p>
+          <p>Course Name: {singleCourse?.courseName}</p>
+          <p>Description: {singleCourse?.description}</p>
+          <p>Price: {singleCourse?.price}</p>
+          <p>Duration: {singleCourse?.duration}days</p>
         </aside>
-        {userData[1]?.role === "admin" && (
-          <aside className={Style.button}>
-            <button>
-              <NavLink to="/createCourse" state={singleData}>
-                Updateeee
-              </NavLink>
-            </button>
-            <button
-              onClick={() => {
-                deleteData(id);
-                viewCourse();
-              }}
-            >
-              Delete
-            </button>
-          </aside>
-        )}
+        <aside className={Style.button}>
+          <button>
+            <NavLink to="/createCourse" state={singleCourse}>
+              Update
+            </NavLink>
+          </button>
+          <button
+            onClick={() => {
+              deleteData(id);
+              viewCourse();
+            }}
+          >
+            Delete
+          </button>
+        </aside>
       </article>
     </section>
   );

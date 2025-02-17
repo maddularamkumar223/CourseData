@@ -1,31 +1,24 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { courseContext } from "../context/CourseContext";
 import Style from "./course.module.css";
 
 const Course = () => {
-  let [courseDetails, setCourseDetails] = useState([]);
+  let { fetchCourse, courses } = useContext(courseContext);
   let navigate = useNavigate();
+  console.log(courses);
 
   let viewCourse = (id) => {
     navigate(`/viewCourse/${id}`);
   };
-  let fetchData = async () => {
-    try {
-      let { data } = await axios.get("http://localhost:3000/courses");
-      setCourseDetails(data);
-    } catch {
-      console.log("Error");
-    }
-  };
 
   useEffect(() => {
-    fetchData();
-  }, [courseDetails.length]);
+    fetchCourse();
+  }, [courses?.length]);
   return (
     <section className={Style.courseContainer}>
       <article>
-        {courseDetails.map((value) => {
+        {courses?.map((value) => {
           return (
             <aside key={value.id}>
               <h2>Course Name : {value.courseName}</h2>

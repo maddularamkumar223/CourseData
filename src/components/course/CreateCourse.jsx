@@ -1,18 +1,20 @@
 import styles from "./CreateCourse.module.css"; // Import the module CSS
-import axios from "axios";
-import { useState } from "react";
+// import axios from "axios";
+import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { courseContext } from "../context/CourseContext";
 
 const CreateCourse = () => {
   let navigate = useNavigate();
   let { state } = useLocation();
-  console.log(state);
+  let { createCourse, updateCourse} = useContext(courseContext);
   let [courseDetails, setCourseDetails] = useState({
     courseName: state?.courseName || "",
     description: state?.description || "",
     price: state?.price || 0,
     duration: state?.duration || "",
   });
+
   let course = () => {
     navigate("/course");
   };
@@ -28,9 +30,7 @@ const CreateCourse = () => {
 
     let payLoad = courseDetails;
 
-    state
-      ? await axios.put(`http://localhost:3000/courses/${state.id}`, payLoad)
-      : await axios.post("http://localhost:3000/courses", payLoad);
+    state ? updateCourse(state.id, payLoad) : createCourse(payLoad);
 
     setCourseDetails({
       courseName: "",

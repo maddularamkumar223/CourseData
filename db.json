@@ -1,27 +1,47 @@
 {
   "courses": [
     {
-      "courseName": "React js",
-      "description": "Single page application",
-      "price": "5000",
-      "duration": "30",
-      "id": "da4b"
+      "id": "a6f2",
+      "courseName": "dm f",
+      "description": "n dfndmsf",
+      "price": "2555",
+      "duration": "25"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "rk",
       "password": "Ram@1234",
       "email": "rk@gmail.com",
-      "role":"admin"
+      "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "kumar",
       "password": "kumar@1234",
       "email": "rk@gmail.com",
-      "role":"user"
+      "role": "user"
+    },
+    {
+      "id": "963d",
+      "username": "maddularamkumar223@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "6cfb",
+      "username": "maddular1@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "d060",
+      "username": "dinga@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "8150",
+      "username": "abc@gmail.com",
+      "password": "123446"
     }
   ]
 }
